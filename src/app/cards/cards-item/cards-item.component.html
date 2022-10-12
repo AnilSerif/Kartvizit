@@ -1,0 +1,19 @@
+<mat-card class="card-item">
+    <mat-card-header>
+        <mat-card-title> {{Card.name}} </mat-card-title>
+        <mat-card-subtitle> {{Card.title}} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <ul class="list-group">
+            <li class="list-group-item">{{Card.phone}}</li>
+            <li class="list-group-item" *ngIf="Card.email; else NoCard">{{Card.email}}</li>
+            <ng-template #NoCard>
+                <small class="text-warning no-content"> E-Posta adresi girilmemiş </small>
+            </ng-template>
+            <li class="list-group-item" *ngIf="Card.adress; else NoAdress">{{Card.adress}}</li>
+            <ng-template #NoAdress>
+                <small class="text-warning no-content"> Adres bilgisi girilmemiş </small>
+            </ng-template>
+          </ul>
+    </mat-card-content>
+</mat-card>
